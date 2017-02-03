@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/m-arch/for-async.svg?branch=master)](https://travis-ci.org/m-arch/for-async)
+
 # for-async
 No it's not for looping items and returning the result when the looping is done. It is for looping over an object or an array and waiting for each of the elements to finish computation before iterating over second element.
 
@@ -48,3 +50,4 @@ var query = Q.nbind(connection.query, connection) //this would avid rainsing Typ
 forAsync(tables, 1, query, (error) => {
   if(err) console.log(error.stack)
  });
+```
