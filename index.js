@@ -3,9 +3,9 @@ var Q = require('q');
 
 /*
 **  
-@param object: is the object that needs to be iterated, can be an Object or an array
-@param index: is the index of argument obtained from the object element and to be added to asyncFunc arguments, starting from 1
-@param asyncFunc: is the asynchronous function that needs to be called at every iteration.    
+@param [object | array] object: is the object that needs to be iterated, can be an Object or an array
+@param [integer] index: is the index of argument obtained from the object element and to be added to asyncFunc arguments, starting from 1
+@param [function] asyncFunc: is the asynchronous function that needs to be called at every iteration.    
 **
 */
 var iterate = function(object, index, asyncFunc /* 1...n args */){
@@ -29,7 +29,7 @@ function asyncIterateObjectKeys(object, i, func, args, index){
 		asyncIterateObjectKeys(object, i = i+ 1, func, args, index);
 	    })
 	    .catch(function(err){
-		throw err;
+		console.log(err);
 	    });
     }
 }
@@ -45,7 +45,7 @@ function asyncIterateArray(object, i, func, args, index){
 		asyncIterateArray(object, i = i+ 1, func, args, index);
 	    })
 	    .catch(function(err){
-		throw err;
+		console.log(err);
 	    });
     }
 }
@@ -58,26 +58,13 @@ function asyncRun(asyncFunc, args){
 	return asyncFunc.apply(this, args)
     })
 	.then(function(ret){
-	    console.log(ret);
 	    def.resolve(ret);
+	})
+	.catch(function(err){
+	    def.reject(err);
 	});
     return def.promise;
 }
 
-//*example
-var alert = function(i,n , m, p){
-    var def = Q.defer();
-    var t = i - n + m + p;
-    if (t== 4){
-	t = 0
-    }
-    console.log("time to wait is: "+  t);
-    setTimeout(function(){
-	def.resolve(t);
-    }, t * 100);
-    return def.promise;
-};
 
-
-//to run example iterate({toz: 1, boz: 2}, 2, alert, 1, 2, 3)
 module.exports = iterate;
