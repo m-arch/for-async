@@ -64,7 +64,7 @@ function asyncRun(asyncFunc, args){
     return def.promise;
 }
 
-
+//*example
 var alert = function(i,n , m, p){
     var def = Q.defer();
     var t = i - n + m + p;
@@ -79,9 +79,5 @@ var alert = function(i,n , m, p){
 };
 
 
-iterate({toz: 1, boz: 2}, 1, alert, 1, 2, 3)
-
-
-exports.module = {
-    iterate: iterate
-}
+//to run example iterate({toz: 1, boz: 2}, 2, alert, 1, 2, 3)
+module.exports = iterate;
