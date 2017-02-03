@@ -1,7 +1,7 @@
 {
-  "name": "for-async",
+  "name": "for-async-i",
   "version": "0.0.1",
-  "description": "No it's not for looping items and returning the result when the looping is done as promises can do thins. It is for looping over an object or an array and waiting for each of the elements to finish computation before iterating over second element. The only purpose to use for-async is when the array elements or the property objects needs to compute in a sequential asynchornous order.",
+  "description": "No it's not for looping items and returning the result when the looping is done as promises can do thins. It is for looping over an object or an array and waiting for each of the elements to finish computation before iterating over second element.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
