@@ -1,7 +1,13 @@
 # for-async
 No it's not for looping items and returning the result when the looping is done. It is for looping over an object or an array and waiting for each of the elements to finish computation before iterating over second element.
 
-# example of usage
+
+## Installation
+
+npm install for-async-i
+
+
+## example of usage
 
 ```js
 var forAsync = require('for-async-i');
@@ -34,7 +40,7 @@ would output the following:
 >0
 
 
-# example of usage for creating SQL tables 
+## example of usage for creating SQL tables 
 supposing tables contains the list of tables we need to create in order, and the function has an error callback.
 
 ```js
@@ -42,6 +48,3 @@ var query = Q.nbind(connection.query, connection) //this would avid rainsing Typ
 forAsync(tables, 1, query, (error) => {
   if(err) console.log(error.stack)
  });
- ```
- 
- 
