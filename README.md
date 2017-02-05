@@ -18,12 +18,12 @@ var alert = function(l, m, n, o){
     var t = m - (l + n + o);
     
     if (t == 4){
-	t = 1;
+    	t = 1;
     }
     console.log("time to wait is: "+  t + " seconds");
     setTimeout(function(){
-	console.log(t);
-	def.resolve(t);
+    	console.log(t);
+		def.resolve(t);
     }, t * 1000);
     return def.promise;
 }
